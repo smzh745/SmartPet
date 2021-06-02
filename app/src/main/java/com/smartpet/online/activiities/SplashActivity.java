@@ -27,7 +27,7 @@ public class SplashActivity extends BaseActivity {
             Intent intent = new Intent(SplashActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
-        }, 3000);
+        }, 4000);
     }
 
     @Override

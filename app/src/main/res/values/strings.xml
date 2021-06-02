@@ -1,8 +1,34 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Smart Pet</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home">Home</string>
-    <string name="sign_in">SignIn</string>
-    <string name="sign_uo">SignUp</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_uo">Sign Up</string>
+    <string name="welcome_to_smart_pet">Welcome to Smart Pet</string>
+    <string name="email_add">Enter Email Address</string>
+    <string name="password">Enter password</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account? <font color='#009966'><u><b>Register</b></u></font></string>
+    <string name="send">Send</string>
+    <string name="back_to_sign_in">Back to <font color='#009966'><u><b>Sign In</b></u></font></string>
+    <string name="have_an_account_sign_up">Have an account? <font color='#009966'><u><b>Sign In</b></u></font></string>
+    <string name="name">Enter Name</string>
+    <string name="phone_number">Enter Phone Number</string>
+    <string name="enter_clinic_name">Enter Clinic Name</string>
+    <string name="enter_shop_name">Enter Shop Name</string>
+    <string name="please_pickup_location">Please pickup location</string>
+    <string name="address">Enter Address</string>
+    <string-array name="user_array">
+        <item>Select User</item>
+        <item>Normal User</item>
+        <item>A Doctor</item>
+        <item>A Shopkeeper</item>
+    </string-array>
+    <string name="error_invalid_password">Password may contain 6 or more characters.</string>
+    <string name="prompt_email">Enter an email</string>
+    <string name="error_invalid_email">Email address is invalid (Try like:abc@example.com)</string>
+    <string name="error_field_required">Please fill the field</string>
+
+    <string name="emailPattern" tools:ignore="TypographyDashes">[a–z0–9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$</string>
 </resources>

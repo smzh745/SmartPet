@@ -20,4 +20,9 @@
         android:name="com.smartpet.online.fragments.SignUpFragment"
         android:label="@string/sign_uo"
         tools:layout="@layout/fragment_sign_up" />
+    <fragment
+        android:id="@+id/forgetPasswordFragment"
+        android:name="com.smartpet.online.fragments.ForgetPasswordFragment"
+        android:label="@string/forget_password"
+        tools:layout="@layout/fragment_forget_password" />
 </navigation>

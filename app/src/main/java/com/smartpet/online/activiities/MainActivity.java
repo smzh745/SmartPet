@@ -20,7 +20,7 @@ public class MainActivity extends BaseActivity {
                 R.id.homeFragment)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+//        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
     }
 
     @Override
