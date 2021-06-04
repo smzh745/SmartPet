@@ -31,4 +31,8 @@
     <string name="error_field_required">Please fill the field</string>
 
     <string name="emailPattern" tools:ignore="TypographyDashes">[a–z0–9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$</string>
+    <string name="find_a_pet">FInd a Pet</string>
+    <string name="post_a_pet">Post a Pet</string>
+    <string name="find_a_shop">Find a Shop</string>
+    <string name="find_a_doctor">Find a Doctor</string>
 </resources>

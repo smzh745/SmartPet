@@ -17,12 +17,21 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.smartpet.online.R;
 import com.smartpet.online.utilities.SharedPrefUtils;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Objects;
 
 import static com.smartpet.online.utilities.Constants.IS_LOGGIN;
+import static com.smartpet.online.utilities.Constants.USER_DATA;
+import static com.smartpet.online.utilities.Constants.USER_EMAIL;
+import static com.smartpet.online.utilities.Constants.USER_ID;
+import static com.smartpet.online.utilities.Constants.USER_NAME;
+import static com.smartpet.online.utilities.Constants.USER_NUMBER;
 
 public class BaseFragment extends Fragment {
     public View view;
@@ -84,5 +93,16 @@ public class BaseFragment extends Fragment {
 
     public String getCurrentDateTime() {
         return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
+    }
+
+    public void fetchUserData() throws JSONException {
+        JSONArray jsonArray= new JSONArray(SharedPrefUtils.getStringData(requireContext(),USER_DATA).toString());
+        for (int i=0;i<=jsonArray.length();i++){
+            JSONObject jsonObject= jsonArray.getJSONObject(i);
+            SharedPrefUtils.saveData(requireContext(),USER_ID,jsonObject.getString("uid"));
+            SharedPrefUtils.saveData(requireContext(),USER_NAME,jsonObject.getString("name"));
+            SharedPrefUtils.saveData(requireContext(),USER_NUMBER,jsonObject.getString("phonenumber"));
+            SharedPrefUtils.saveData(requireContext(),USER_EMAIL,jsonObject.getString("email"));
+        }
     }
 }

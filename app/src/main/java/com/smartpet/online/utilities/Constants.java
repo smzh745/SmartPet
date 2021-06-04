@@ -4,6 +4,10 @@ public class Constants {
     public static final String TAG = "SmartPet";
     public static final String IS_LOGGIN = "isLoggedIn";
     public static final String USER_DATA = "user_data";
+    public static final String USER_ID = "user_id";
+    public static final String USER_NAME = "user_name";
+    public static final String USER_NUMBER = "user_number";
+    public static final String USER_EMAIL = "user_email";
 
 
     //urls
