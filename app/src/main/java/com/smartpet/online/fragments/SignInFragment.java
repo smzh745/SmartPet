@@ -184,7 +184,9 @@ public class SignInFragment extends BaseFragment {
                                 if (!obj.getBoolean("error")) {
                                     SharedPrefUtils.saveData(requireContext(), IS_LOGGIN, true);
                                     SharedPrefUtils.saveData(requireContext(), USER_DATA, obj.getString("data"));
+
                                     navigateFragment(R.id.homeFragment);
+                                    fetchUserData();
                                 } else {
                                     showToast(obj.getString("message"));
                                 }

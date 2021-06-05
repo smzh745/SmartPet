@@ -25,4 +25,12 @@
         android:name="com.smartpet.online.fragments.ForgetPasswordFragment"
         android:label="@string/forget_password"
         tools:layout="@layout/fragment_forget_password" />
+    <fragment
+        android:id="@+id/postPetFragment"
+        android:name="com.smartpet.online.fragments.PostPetFragment"
+        tools:layout="@layout/fragment_post_pet" />
+    <fragment
+        android:id="@+id/findPetFragment"
+        android:name="com.smartpet.online.fragments.FindPetFragment"
+        tools:layout="@layout/fragment_find_pet" />
 </navigation>

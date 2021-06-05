@@ -10,8 +10,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.smartpet.online.R;
@@ -32,10 +34,13 @@ import static com.smartpet.online.utilities.Constants.USER_EMAIL;
 import static com.smartpet.online.utilities.Constants.USER_ID;
 import static com.smartpet.online.utilities.Constants.USER_NAME;
 import static com.smartpet.online.utilities.Constants.USER_NUMBER;
+import static com.smartpet.online.utilities.Constants.USER_TYPE;
 
 public class BaseFragment extends Fragment {
     public View view;
     ProgressDialog progressDialog;
+    SearchView searchView;
+    RecyclerView recyclerView;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -97,12 +102,13 @@ public class BaseFragment extends Fragment {
 
     public void fetchUserData() throws JSONException {
         JSONArray jsonArray= new JSONArray(SharedPrefUtils.getStringData(requireContext(),USER_DATA).toString());
-        for (int i=0;i<=jsonArray.length();i++){
+        for (int i=0;i<jsonArray.length();i++){
             JSONObject jsonObject= jsonArray.getJSONObject(i);
             SharedPrefUtils.saveData(requireContext(),USER_ID,jsonObject.getString("uid"));
             SharedPrefUtils.saveData(requireContext(),USER_NAME,jsonObject.getString("name"));
             SharedPrefUtils.saveData(requireContext(),USER_NUMBER,jsonObject.getString("phonenumber"));
             SharedPrefUtils.saveData(requireContext(),USER_EMAIL,jsonObject.getString("email"));
+            SharedPrefUtils.saveData(requireContext(),USER_TYPE,jsonObject.getString("utype"));
         }
     }
 }

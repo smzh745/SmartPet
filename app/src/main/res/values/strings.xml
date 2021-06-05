@@ -25,6 +25,15 @@
         <item>A Doctor</item>
         <item>A Shopkeeper</item>
     </string-array>
+    <string-array name="pet_array">
+        <item>Select Pet</item>
+        <item>Dog</item>
+        <item>Cat</item>
+        <item>Hen</item>
+        <item>Bird</item>
+        <item>Rabbit</item>
+        <item>Fish</item>
+    </string-array>
     <string name="error_invalid_password">Password may contain 6 or more characters.</string>
     <string name="prompt_email">Enter an email</string>
     <string name="error_invalid_email">Email address is invalid (Try like:abc@example.com)</string>
@@ -35,4 +44,14 @@
     <string name="post_a_pet">Post a Pet</string>
     <string name="find_a_shop">Find a Shop</string>
     <string name="find_a_doctor">Find a Doctor</string>
+    <string name="enable_perm">You need to enable these permissions.</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="pet_name">Enter Pet Name</string>
+    <string name="enter_pet_price">Enter Pet Price</string>
+    <string name="pet_description">Pet Description</string>
+    <string name="pet_image">Pet Image</string>
+    <string name="post">Post</string>
+    <string name="keyword">Search by Pet</string>
+
 </resources>
