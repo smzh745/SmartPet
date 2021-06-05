@@ -25,7 +25,7 @@ import static com.smartpet.online.utilities.Constants.USER_NAME;
 public class HomeFragment extends BaseFragment {
 
     private MaterialTextView userName;
-    private MaterialCardView postPetBtn,findPet;
+    private MaterialCardView postPetBtn, findPet, findDoctor;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -65,6 +65,7 @@ public class HomeFragment extends BaseFragment {
             userName = view.findViewById(R.id.userName);
             postPetBtn = view.findViewById(R.id.postPetBtn);
             findPet = view.findViewById(R.id.findPet);
+            findDoctor = view.findViewById(R.id.findDoctor);
             try {
                 fetchUserData();
 
@@ -84,6 +85,12 @@ public class HomeFragment extends BaseFragment {
                 @Override
                 public void onClick(View view) {
                     navigateFragment(R.id.findPetFragment);
+                }
+            });
+            findDoctor.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    navigateFragment(R.id.findDoctorFragment);
                 }
             });
         }

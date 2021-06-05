@@ -17,6 +17,7 @@ public class Constants {
     public static final String REGISTER_USER = BASE_URL + "registerUser.php";
     public static final String LOGIN_USER = BASE_URL + "loginUser.php";
     public static final String FIND_PET = BASE_URL + "findPet.php";
+    public static final String FIND_DOCTOR = BASE_URL + "findDoctor.php";
     public static final String POST_PET = BASE_URL + "postPet.php?apicall=" + "uploadpic";
     public static final String UPLOAD_FOLDER = BASE_URL+"uploads/";
 

@@ -53,5 +53,6 @@
     <string name="pet_image">Pet Image</string>
     <string name="post">Post</string>
     <string name="keyword">Search by Pet</string>
+    <string name="keyword_doctor">Search by Name</string>
 
 </resources>
