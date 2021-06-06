@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.Nullable;
@@ -20,12 +21,14 @@ import com.smartpet.online.utilities.SharedPrefUtils;
 
 import org.json.JSONException;
 
+import static com.smartpet.online.utilities.Constants.IS_LOGGIN;
 import static com.smartpet.online.utilities.Constants.USER_NAME;
 
 public class HomeFragment extends BaseFragment {
 
     private MaterialTextView userName;
-    private MaterialCardView postPetBtn, findPet, findDoctor;
+    private MaterialCardView postPetBtn, findPet, findDoctor,findShopBtn;
+    private ImageView logoutBtn;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -66,6 +69,8 @@ public class HomeFragment extends BaseFragment {
             postPetBtn = view.findViewById(R.id.postPetBtn);
             findPet = view.findViewById(R.id.findPet);
             findDoctor = view.findViewById(R.id.findDoctor);
+            findShopBtn = view.findViewById(R.id.findShopBtn);
+            logoutBtn = view.findViewById(R.id.logoutBtn);
             try {
                 fetchUserData();
 
@@ -91,6 +96,19 @@ public class HomeFragment extends BaseFragment {
                 @Override
                 public void onClick(View view) {
                     navigateFragment(R.id.findDoctorFragment);
+                }
+            });
+            findShopBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    navigateFragment(R.id.FIndShopFragment);
+                }
+            });
+            logoutBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    SharedPrefUtils.saveData(requireContext(),IS_LOGGIN,false);
+                    navigateFragment(R.id.signInFragment);
                 }
             });
         }

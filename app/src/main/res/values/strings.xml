@@ -54,5 +54,6 @@
     <string name="post">Post</string>
     <string name="keyword">Search by Pet</string>
     <string name="keyword_doctor">Search by Name</string>
+    <string name="keyword_shop">Search by shop name</string>
 
 </resources>

@@ -36,6 +36,9 @@
     <fragment
         android:id="@+id/findDoctorFragment"
         android:name="com.smartpet.online.fragments.FindDoctorFragment"
-        android:label="fragment_find_doctor"
         tools:layout="@layout/fragment_find_doctor" />
+    <fragment
+        android:id="@+id/FIndShopFragment"
+        android:name="com.smartpet.online.fragments.FIndShopFragment"
+        tools:layout="@layout/fragment_f_ind_shop" />
 </navigation>

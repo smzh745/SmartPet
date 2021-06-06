@@ -16,20 +16,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.google.android.material.textview.MaterialTextView;
 import com.smartpet.online.R;
-import com.smartpet.online.models.FindPet;
+import com.smartpet.online.models.FindShop;
 import com.smartpet.online.utilities.Constants;
 
 import java.util.ArrayList;
 
-import static com.smartpet.online.utilities.Constants.UPLOAD_FOLDER;
-
 @SuppressWarnings("ALL")
-public class FindPetAdapter extends RecyclerView.Adapter<FindPetAdapter.MyHolder> implements Filterable {
+public class FindShopAdapter extends RecyclerView.Adapter<FindShopAdapter.MyHolder> implements Filterable {
     private final Context context;
-    private final ArrayList<FindPet> findPetArrayList;
-    private final ArrayList<FindPet> findPetArrayListFilterd;
+    private final ArrayList<FindShop> findPetArrayList;
+    private final ArrayList<FindShop> findPetArrayListFilterd;
 
-    public FindPetAdapter(Context context, ArrayList<FindPet> findPetArrayList) {
+    public FindShopAdapter(Context context, ArrayList<FindShop> findPetArrayList) {
         this.context = context;
         this.findPetArrayList = findPetArrayList;
         findPetArrayListFilterd = new ArrayList<>(findPetArrayList);
@@ -45,12 +43,12 @@ public class FindPetAdapter extends RecyclerView.Adapter<FindPetAdapter.MyHolder
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
-        FindPet findPet = findPetArrayList.get(position);
-        holder.size_text.setText("Posted by: " + findPet.getName());
-        holder.video_info.setText("Pet Price: Rs." + findPet.getPetPrice() + " | " + "Pet Type: " + findPet.getPetType());
+        FindShop findPet = findPetArrayList.get(position);
+        holder.size_text.setText("Shop Name: " + findPet.getShopName());
+        holder.video_info.setText("Shopkeeper Name: " + findPet.getName() + " | " + "Number: " + findPet.getPhonNumber());
         holder.video_info.setSelected(true);
-        Glide.with(context).load(UPLOAD_FOLDER + findPet.getPetImage()).into(holder.video_thumb);
-        holder.datePost.setText("Posted at: " + findPet.getPetDate());
+        Glide.with(context).load(R.drawable.shopping_cart2).into(holder.video_thumb);
+        holder.datePost.setText("Shop Location: " + findPet.getShopLocation());
     }
 
     @Override
@@ -63,11 +61,11 @@ public class FindPetAdapter extends RecyclerView.Adapter<FindPetAdapter.MyHolder
         return new Filter() {
             @Override
             protected FilterResults performFiltering(CharSequence charSequence) {
-                ArrayList<FindPet> filterList = new ArrayList<>();
+                ArrayList<FindShop> filterList = new ArrayList<>();
                 if (charSequence.length() > 0) {
                     String pattern = charSequence.toString().toLowerCase().trim();
-                    for (FindPet findPet : findPetArrayListFilterd) {
-                        if (findPet.getPetType().toLowerCase().contains(pattern)) {
+                    for (FindShop findPet : findPetArrayListFilterd) {
+                        if (findPet.getShopName().toLowerCase().contains(pattern)) {
                             filterList.add(findPet);
                         } else {
                             Log.d(Constants.TAG, "performFiltering: nothing");
@@ -84,7 +82,7 @@ public class FindPetAdapter extends RecyclerView.Adapter<FindPetAdapter.MyHolder
             @Override
             protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
                 findPetArrayList.clear();
-                findPetArrayList.addAll((ArrayList<FindPet>) filterResults.values);
+                findPetArrayList.addAll((ArrayList<FindShop>) filterResults.values);
                 notifyDataSetChanged();
             }
         };

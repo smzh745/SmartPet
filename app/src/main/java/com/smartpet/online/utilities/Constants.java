@@ -13,11 +13,13 @@ public class Constants {
     public final static int PICK_CAM = 102;
 
     //urls
-    public static final String BASE_URL = "http://192.168.0.115/pets/";
+    public static final String BASE_URL = "http://192.168.0.118/pets/";
     public static final String REGISTER_USER = BASE_URL + "registerUser.php";
     public static final String LOGIN_USER = BASE_URL + "loginUser.php";
     public static final String FIND_PET = BASE_URL + "findPet.php";
     public static final String FIND_DOCTOR = BASE_URL + "findDoctor.php";
+    public static final String FIND_SHOP = BASE_URL + "findShop.php";
+    public static final String FORGET_PASSWORD = BASE_URL + "forgetPassword.php";
     public static final String POST_PET = BASE_URL + "postPet.php?apicall=" + "uploadpic";
     public static final String UPLOAD_FOLDER = BASE_URL+"uploads/";
 
