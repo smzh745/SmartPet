@@ -21,6 +21,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".activiities.ViewImageActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".activiities.ViewPetActivity" />
+        <activity
             android:name=".activiities.ViewDoctorActivity"
             android:screenOrientation="portrait" />
         <activity
