@@ -1,6 +1,8 @@
 package com.smartpet.online.models;
 
-public class FindDoctor {
+import java.io.Serializable;
+
+public class FindDoctor implements Serializable {
     private final String uid;
     private final String name;
     private final String phoneNum;

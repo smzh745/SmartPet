@@ -2,6 +2,7 @@ package com.smartpet.online.fragments;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
@@ -18,9 +19,12 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.smartpet.online.R;
+import com.smartpet.online.activiities.ViewDoctorActivity;
 import com.smartpet.online.adapters.FindDoctorAdapter;
 import com.smartpet.online.models.FindDoctor;
+import com.smartpet.online.utilities.ClickListener;
 import com.smartpet.online.utilities.Constants;
+import com.smartpet.online.utilities.RecyclerTouchListener;
 import com.smartpet.online.utilities.RequestHandler;
 
 import org.json.JSONArray;
@@ -35,7 +39,6 @@ public class FindDoctorFragment extends BaseFragment {
     private FindDoctorAdapter adapter;
     private ArrayList<FindDoctor> findPetArrayList;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -49,6 +52,20 @@ public class FindDoctorFragment extends BaseFragment {
         backArrow.setOnClickListener(view -> navigateFragment(R.id.homeFragment));
         initSearchView();
         fetchAllDoctors();
+        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(requireContext(), recyclerView, new ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                Intent intent=new Intent(requireActivity(), ViewDoctorActivity.class);
+                intent.putExtra("position",position);
+                intent.putExtra("list",findPetArrayList);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));
         return view;
     }
 

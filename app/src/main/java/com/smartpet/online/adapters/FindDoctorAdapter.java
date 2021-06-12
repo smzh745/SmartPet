@@ -2,6 +2,7 @@ package com.smartpet.online.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,13 +10,16 @@ import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.textview.MaterialTextView;
 import com.smartpet.online.R;
+import com.smartpet.online.activiities.ViewDoctorActivity;
 import com.smartpet.online.models.FindDoctor;
 import com.smartpet.online.utilities.Constants;
 
@@ -49,6 +53,16 @@ public class FindDoctorAdapter extends RecyclerView.Adapter<FindDoctorAdapter.My
         holder.video_info.setSelected(true);
         Glide.with(context).load(R.drawable.doctor2).into(holder.video_thumb);
         holder.datePost.setText("Clinic Location: " + findPet.getClinicLocation());
+
+    /*    holder.viewBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(context, ViewDoctorActivity.class);
+                intent.putExtra("position",position);
+                intent.putExtra("list",findPetArrayList);
+                context.startActivity(intent);
+            }
+        });*/
     }
 
     @Override
@@ -65,7 +79,7 @@ public class FindDoctorAdapter extends RecyclerView.Adapter<FindDoctorAdapter.My
                 if (charSequence.length() > 0) {
                     String pattern = charSequence.toString().toLowerCase().trim();
                     for (FindDoctor findPet : findPetArrayListFilterd) {
-                        if (findPet.getName().toLowerCase().contains(pattern)) {
+                        if (findPet.getClinicLocation().toLowerCase().contains(pattern)) {
                             filterList.add(findPet);
                         } else {
                             Log.d(Constants.TAG, "performFiltering: nothing");
@@ -91,6 +105,7 @@ public class FindDoctorAdapter extends RecyclerView.Adapter<FindDoctorAdapter.My
     public static class MyHolder extends RecyclerView.ViewHolder {
         ImageView video_thumb;
         MaterialTextView video_info, size_text, datePost;
+        MaterialCardView viewBtn;
 
         public MyHolder(@NonNull View itemView) {
             super(itemView);
@@ -98,6 +113,7 @@ public class FindDoctorAdapter extends RecyclerView.Adapter<FindDoctorAdapter.My
             video_info = itemView.findViewById(R.id.video_info);
             size_text = itemView.findViewById(R.id.size_text);
             datePost = itemView.findViewById(R.id.datePost);
+            viewBtn = itemView.findViewById(R.id.video_card);
         }
     }
 }
