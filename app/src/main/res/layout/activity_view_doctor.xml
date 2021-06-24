@@ -76,25 +76,50 @@
                 android:textSize="@dimen/_12ssp"
                 tools:targetApi="o" />
         </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/white"
-            app:boxBackgroundColor="@color/colorBg">
+            android:orientation="horizontal">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/number"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints="@string/name"
-                android:editable="false"
-                android:focusable="false"
-                android:hint="@string/phone_number"
-                android:inputType="text"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_12ssp"
-                tools:targetApi="o" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/white"
+                    app:boxBackgroundColor="@color/colorBg">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="@string/name"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:hint="@string/phone_number"
+                        android:inputType="text"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12ssp"
+                        tools:targetApi="o" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/callNow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/_5sdp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_baseline_call_24" />
+        </LinearLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"

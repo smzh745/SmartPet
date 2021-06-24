@@ -19,7 +19,6 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.smartpet.online.R;
-import com.smartpet.online.activiities.ViewDoctorActivity;
 import com.smartpet.online.activiities.ViewPetActivity;
 import com.smartpet.online.adapters.FindPetAdapter;
 import com.smartpet.online.models.FindPet;
@@ -38,7 +37,6 @@ import static com.smartpet.online.utilities.Constants.FIND_PET;
 
 public class FindPetFragment extends BaseFragment {
 
-    private ImageView backArrow;
     private FindPetAdapter adapter;
     private ArrayList<FindPet> findPetArrayList;
 
@@ -49,7 +47,7 @@ public class FindPetFragment extends BaseFragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_find_pet, container, false);
         findPetArrayList = new ArrayList<>();
-        backArrow = view.findViewById(R.id.backArrow);
+        ImageView backArrow = view.findViewById(R.id.backArrow);
         recyclerView = view.findViewById(R.id.recyclerView);
         searchView = view.findViewById(R.id.searchView);
 

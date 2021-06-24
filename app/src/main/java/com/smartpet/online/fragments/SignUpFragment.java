@@ -1,17 +1,12 @@
 package com.smartpet.online.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -42,11 +37,8 @@ import static com.smartpet.online.utilities.Constants.REGISTER_USER;
 
 
 public class SignUpFragment extends BaseFragment {
-    private TextInputLayout emailinput, passwordinput, phoneinput, nameinput, snameinput, saddresinput;
+    private TextInputLayout  snameinput;
     private TextInputEditText email, pass, phone, name, sname, saddress;
-    private ImageView backArrow;
-    private MaterialTextView openSignIn;
-    private MaterialButton signUpBtn;
     private Spinner selectUser;
     private LinearLayout layoutOther;
 
@@ -72,23 +64,18 @@ public class SignUpFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_sign_up, container, false);
-        backArrow = view.findViewById(R.id.backArrow);
-        openSignIn = view.findViewById(R.id.openSignIn);
-        signUpBtn = view.findViewById(R.id.signUpBtn);
-        emailinput = view.findViewById(R.id.emailinput);
-        passwordinput = view.findViewById(R.id.passwordinput);
+        ImageView backArrow = view.findViewById(R.id.backArrow);
+        MaterialTextView openSignIn = view.findViewById(R.id.openSignIn);
+        MaterialButton signUpBtn = view.findViewById(R.id.signUpBtn);
         selectUser = view.findViewById(R.id.selectUser);
         email = view.findViewById(R.id.email);
         pass = view.findViewById(R.id.pass);
         phone = view.findViewById(R.id.phone);
         name = view.findViewById(R.id.name);
-        phoneinput = view.findViewById(R.id.phoneinput);
-        nameinput = view.findViewById(R.id.nameinput);
         layoutOther = view.findViewById(R.id.layoutOther);
         snameinput = view.findViewById(R.id.snameinput);
         sname = view.findViewById(R.id.sname);
         saddress = view.findViewById(R.id.saddress);
-        saddresinput = view.findViewById(R.id.saddresinput);
 
 
         setSpinner(R.array.user_array, selectUser);
@@ -115,12 +102,10 @@ public class SignUpFragment extends BaseFragment {
 
                 } else if (pos == 2) {
                     layoutOther.setVisibility(View.VISIBLE);
-//                    sname.setHint(getString(R.string.enter_clinic_name));
                     snameinput.setHint(getString(R.string.enter_clinic_name));
 
                 } else if (pos == 3) {
                     layoutOther.setVisibility(View.VISIBLE);
-//                    sname.setHint(getString(R.string.enter_shop_name));
                     snameinput.setHint(getString(R.string.enter_shop_name));
                 }
             }
@@ -170,52 +155,7 @@ public class SignUpFragment extends BaseFragment {
                 }
             }
         });
-        //password field validation
-        pass.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                validatePasswordField(s);
-            }
-        });
-        //checking password input
-        passwordinput.setOnFocusChangeListener((v, hasFocus) -> {
-            if (!hasFocus) {
-                validatePasswordField(((EditText) v).getText());
-            }
-        });
-        /*
-         * email input validation
-         * using input layoout and regex*/
-        email.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                validateEmailfield(s);
-            }
-        });
-        //checking email input
-        email.setOnFocusChangeListener((v, hasFocus) -> {
-            if (!hasFocus) {
-                validateEmailfield(((EditText) v).getText());
-            }
-        });
         return view;
     }
 
@@ -282,7 +222,7 @@ public class SignUpFragment extends BaseFragment {
                 }
 
                 @Override
-                public void retry(VolleyError error) throws VolleyError {
+                public void retry(VolleyError error) {
 
                 }
             });
@@ -292,38 +232,5 @@ public class SignUpFragment extends BaseFragment {
         }
     }
 
-    /*
-     * TODO: method for email input field validation
-     * */
-    public void validateEmailfield(Editable s) {
-        if (TextUtils.isEmpty(s)) {
-            emailinput.setError(getString(R.string.error_field_required));
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(s.toString()).matches()) {
-            emailinput.setErrorEnabled(true);
-            emailinput.setError(getString(R.string.error_invalid_email));
-
-        } else if (Patterns.EMAIL_ADDRESS.matcher(s.toString()).matches()) {
-            emailinput.setError(null);
-            emailinput.setErrorEnabled(false);
-        }
-    }
-
-    /*
-     * Todo: method for password input field validation
-     * */
-    public void validatePasswordField(Editable s) {
-        if (TextUtils.isEmpty(s)) {
-
-            passwordinput.setError(getString(R.string.error_field_required));
-        } else if (s.toString().length() <= 6) {
-            passwordinput.setErrorEnabled(true);
-            passwordinput.setError(getString(R.string.error_invalid_password));
-
-
-        } else if (s.toString().length() >= 6) {
-            passwordinput.setError(null);
-            passwordinput.setErrorEnabled(false);
-        }
-    }
 
 }

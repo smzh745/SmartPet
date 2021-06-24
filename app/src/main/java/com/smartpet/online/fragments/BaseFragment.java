@@ -101,7 +101,7 @@ public class BaseFragment extends Fragment {
     }
 
     public void fetchUserData() throws JSONException {
-        JSONArray jsonArray= new JSONArray(SharedPrefUtils.getStringData(requireContext(),USER_DATA).toString());
+        JSONArray jsonArray= new JSONArray(SharedPrefUtils.getStringData(requireContext(),USER_DATA));
         for (int i=0;i<jsonArray.length();i++){
             JSONObject jsonObject= jsonArray.getJSONObject(i);
             SharedPrefUtils.saveData(requireContext(),USER_ID,jsonObject.getString("uid"));

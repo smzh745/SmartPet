@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorBg"
     android:orientation="vertical"
-    tools:context=".activiities.ViewPetActivity">
+    tools:context=".activiities.ViewShopActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,18 +35,17 @@
             android:layout_margin="@dimen/_5sdp"
             android:gravity="center"
             android:padding="@dimen/_5sdp"
-            android:text="@string/find_a_pet"
+            android:text="@string/find_a_shop"
             android:textColor="@color/white"
             android:textSize="@dimen/_16ssp"
             android:textStyle="bold" />
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/image"
         android:layout_width="@dimen/_100sdp"
         android:layout_height="@dimen/_100sdp"
         android:layout_gravity="center"
-        android:src="@drawable/pet" />
+        android:src="@drawable/shopping_cart2" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -71,67 +70,7 @@
                 android:autofillHints="@string/name"
                 android:editable="false"
                 android:focusable="false"
-                android:hint="@string/pet_name"
-                android:inputType="text"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_12ssp"
-                tools:targetApi="o" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColorHint="@color/white"
-            app:boxBackgroundColor="@color/colorBg">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/number"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:autofillHints="@string/name"
-                android:editable="false"
-                android:focusable="false"
-                android:hint="@string/enter_pet_price"
-                android:inputType="text"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_12ssp"
-                tools:targetApi="o" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColorHint="@color/white"
-            app:boxBackgroundColor="@color/colorBg">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/type"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:autofillHints="@string/name"
-                android:editable="false"
-                android:focusable="false"
-                android:hint="@string/pet_type"
-                android:inputType="text"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_12ssp"
-                tools:targetApi="o" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColorHint="@color/white"
-            app:boxBackgroundColor="@color/colorBg">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/postedBy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:autofillHints="@string/name"
-                android:editable="false"
-                android:focusable="false"
-                android:hint="@string/posted_by"
+                android:hint="@string/name"
                 android:inputType="text"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_12ssp"
@@ -156,7 +95,7 @@
                     app:boxBackgroundColor="@color/colorBg">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/numberBy"
+                        android:id="@+id/number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:autofillHints="@string/name"
@@ -168,6 +107,8 @@
                         android:textSize="@dimen/_12ssp"
                         tools:targetApi="o" />
                 </com.google.android.material.textfield.TextInputLayout>
+
+
             </LinearLayout>
 
             <ImageView
@@ -179,5 +120,46 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_baseline_call_24" />
         </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/white"
+            app:boxBackgroundColor="@color/colorBg">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/clinicName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="@string/name"
+                android:editable="false"
+                android:focusable="false"
+                android:hint="@string/enter_shop_name"
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp"
+                tools:targetApi="o" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/white"
+            app:boxBackgroundColor="@color/colorBg">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/clinicLoc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="@string/name"
+                android:editable="false"
+                android:focusable="false"
+                android:hint="@string/address"
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp"
+                tools:targetApi="o" />
+        </com.google.android.material.textfield.TextInputLayout>
+
     </LinearLayout>
 </LinearLayout>

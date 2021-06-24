@@ -10,19 +10,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.smartpet.online.R;
-import com.smartpet.online.models.FindDoctor;
+import com.smartpet.online.models.FindShop;
 
 import java.util.ArrayList;
 
-public class ViewDoctorActivity extends AppCompatActivity {
-    private ArrayList<FindDoctor> findPetArrayList;
+public class ViewShopActivity extends AppCompatActivity {
+    private ArrayList<FindShop> findPetArrayList;
     private int position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_doctor);
-        findPetArrayList = (ArrayList<FindDoctor>) getIntent().getSerializableExtra("list");
+        setContentView(R.layout.activity_view_shop);
+        findPetArrayList = (ArrayList<FindShop>) getIntent().getSerializableExtra("list");
         position = getIntent().getIntExtra("position", 0);
 
         ImageView backArrow = findViewById(R.id.backArrow);
@@ -38,12 +38,12 @@ public class ViewDoctorActivity extends AppCompatActivity {
             }
         });
         name.setText(findPetArrayList.get(position).getName());
-        number.setText(findPetArrayList.get(position).getPhoneNum());
-        clinicName.setText(findPetArrayList.get(position).getClinicName());
-        clinicLoc.setText(findPetArrayList.get(position).getClinicLocation());
+        number.setText(findPetArrayList.get(position).getPhonNumber());
+        clinicName.setText(findPetArrayList.get(position).getShopName());
+        clinicLoc.setText(findPetArrayList.get(position).getShopLocation());
 
         callNow.setOnClickListener(view -> {
-            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", findPetArrayList.get(position).getPhoneNum(), null));
+            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", findPetArrayList.get(position).getPhonNumber(), null));
             startActivity(intent);
         });
     }

@@ -43,10 +43,8 @@ import static com.smartpet.online.utilities.Constants.USER_DATA;
 
 public class SignInFragment extends BaseFragment {
 
-    private TextInputLayout emailinput, passwordinput;
     private TextInputEditText email, pass;
     private MaterialButton loginBtn;
-    private MaterialTextView forgetPassBtn, openSignUp;
     private Spinner selectUser;
 
     @Override
@@ -74,13 +72,11 @@ public class SignInFragment extends BaseFragment {
         if (isLoggedIn()) {
             navigateFragment(R.id.homeFragment);
         } else {
-            emailinput = view.findViewById(R.id.emailinput);
-            passwordinput = view.findViewById(R.id.passwordinput);
             email = view.findViewById(R.id.email);
             pass = view.findViewById(R.id.pass);
             loginBtn = view.findViewById(R.id.loginBtn);
-            forgetPassBtn = view.findViewById(R.id.forgetPassBtn);
-            openSignUp = view.findViewById(R.id.openSignUp);
+            MaterialTextView forgetPassBtn = view.findViewById(R.id.forgetPassBtn);
+            MaterialTextView openSignUp = view.findViewById(R.id.openSignUp);
             selectUser = view.findViewById(R.id.selectUser);
             setSpinner(R.array.user_array, selectUser);
 
@@ -98,52 +94,6 @@ public class SignInFragment extends BaseFragment {
             });
 
         }
-        //password field validation
-        pass.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                validatePasswordField(s);
-            }
-        });
-        //checking password input
-        passwordinput.setOnFocusChangeListener((v, hasFocus) -> {
-            if (!hasFocus) {
-                validatePasswordField(((EditText) v).getText());
-            }
-        });
-        /*
-         * email input validation
-         * using input layoout and regex*/
-        email.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                validateEmailfield(s);
-            }
-        });
-        //checking email input
-        email.setOnFocusChangeListener((v, hasFocus) -> {
-            if (!hasFocus) {
-                validateEmailfield(((EditText) v).getText());
-            }
-        });
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -241,37 +191,4 @@ public class SignInFragment extends BaseFragment {
         }
     }
 
-    /*
-     * TODO: method for email input field validation
-     * */
-    public void validateEmailfield(Editable s) {
-        if (TextUtils.isEmpty(s)) {
-            emailinput.setError(getString(R.string.error_field_required));
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(s.toString()).matches()) {
-            emailinput.setErrorEnabled(true);
-            emailinput.setError(getString(R.string.error_invalid_email));
-
-        } else if (Patterns.EMAIL_ADDRESS.matcher(s.toString()).matches()) {
-            emailinput.setError(null);
-            emailinput.setErrorEnabled(false);
-        }
-    }
-
-    /*
-     * Todo: method for password input field validation
-     * */
-    public void validatePasswordField(Editable s) {
-        if (TextUtils.isEmpty(s)) {
-
-            passwordinput.setError(getString(R.string.error_field_required));
-        } else if (s.toString().length() <= 6) {
-            passwordinput.setErrorEnabled(true);
-            passwordinput.setError(getString(R.string.error_invalid_password));
-
-
-        } else if (s.toString().length() >= 6) {
-            passwordinput.setError(null);
-            passwordinput.setErrorEnabled(false);
-        }
-    }
 }

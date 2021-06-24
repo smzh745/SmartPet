@@ -26,10 +26,6 @@ import static com.smartpet.online.utilities.Constants.USER_NAME;
 
 public class HomeFragment extends BaseFragment {
 
-    private MaterialTextView userName;
-    private MaterialCardView postPetBtn, findPet, findDoctor,findShopBtn;
-    private ImageView logoutBtn;
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,12 +61,12 @@ public class HomeFragment extends BaseFragment {
                     permissionsUtils.requestPermissionsIfDenied();
                 }
             }
-            userName = view.findViewById(R.id.userName);
-            postPetBtn = view.findViewById(R.id.postPetBtn);
-            findPet = view.findViewById(R.id.findPet);
-            findDoctor = view.findViewById(R.id.findDoctor);
-            findShopBtn = view.findViewById(R.id.findShopBtn);
-            logoutBtn = view.findViewById(R.id.logoutBtn);
+            MaterialTextView userName = view.findViewById(R.id.userName);
+            MaterialCardView postPetBtn = view.findViewById(R.id.postPetBtn);
+            MaterialCardView findPet = view.findViewById(R.id.findPet);
+            MaterialCardView findDoctor = view.findViewById(R.id.findDoctor);
+            MaterialCardView findShopBtn = view.findViewById(R.id.findShopBtn);
+            ImageView logoutBtn = view.findViewById(R.id.logoutBtn);
             try {
                 fetchUserData();
 

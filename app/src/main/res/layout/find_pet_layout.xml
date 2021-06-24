@@ -12,12 +12,12 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_10sdp"
         android:backgroundTint="@color/colorBg"
+        android:clickable="true"
+        android:focusable="true"
         app:cardCornerRadius="@dimen/_10sdp"
         app:cardElevation="@dimen/_5sdp"
         app:strokeColor="@color/white"
         app:strokeWidth="1dp"
-        android:clickable="true"
-        android:focusable="true"
         tools:ignore="RtlSymmetry,UnusedAttribute,RelativeOverlap,UselessParent">
 
 
@@ -132,7 +132,15 @@
                 </RelativeLayout>
             </LinearLayout>
 
-
+            <ImageView
+                android:id="@+id/callNow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/_5sdp"
+                android:visibility="gone"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_baseline_call_24" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 

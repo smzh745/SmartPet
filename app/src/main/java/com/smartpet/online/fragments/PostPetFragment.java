@@ -45,12 +45,9 @@ import static com.smartpet.online.utilities.Constants.USER_ID;
 
 public class PostPetFragment extends BaseFragment {
 
-    private ImageView backArrow;
-    private TextInputLayout nameinput, priceinput, descinput;
     private TextInputEditText name, price, description;
     private Spinner selectPet;
     private ImageView imagePick;
-    private MaterialButton postBtn;
     private Bitmap thumbnail;
 
     @Override
@@ -58,16 +55,13 @@ public class PostPetFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_post_pet, container, false);
-        backArrow = view.findViewById(R.id.backArrow);
+        ImageView backArrow = view.findViewById(R.id.backArrow);
         name = view.findViewById(R.id.name);
-        nameinput = view.findViewById(R.id.nameinput);
-        priceinput = view.findViewById(R.id.priceinput);
         price = view.findViewById(R.id.price);
-        descinput = view.findViewById(R.id.descinput);
         selectPet = view.findViewById(R.id.selectPet);
         description = view.findViewById(R.id.description);
         imagePick = view.findViewById(R.id.imagePick);
-        postBtn = view.findViewById(R.id.postBtn);
+        MaterialButton postBtn = view.findViewById(R.id.postBtn);
 
         setSpinner(R.array.pet_array, selectPet);
         backArrow.setOnClickListener(new View.OnClickListener() {

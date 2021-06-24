@@ -49,6 +49,8 @@ public class FindShopAdapter extends RecyclerView.Adapter<FindShopAdapter.MyHold
         holder.video_info.setSelected(true);
         Glide.with(context).load(R.drawable.shopping_cart2).into(holder.video_thumb);
         holder.datePost.setText("Shop Location: " + findPet.getShopLocation());
+
+
     }
 
     @Override
@@ -89,7 +91,7 @@ public class FindShopAdapter extends RecyclerView.Adapter<FindShopAdapter.MyHold
     }
 
     public static class MyHolder extends RecyclerView.ViewHolder {
-        ImageView video_thumb;
+        ImageView video_thumb,callNow;
         MaterialTextView video_info, size_text, datePost;
 
         public MyHolder(@NonNull View itemView) {
@@ -98,6 +100,7 @@ public class FindShopAdapter extends RecyclerView.Adapter<FindShopAdapter.MyHold
             video_info = itemView.findViewById(R.id.video_info);
             size_text = itemView.findViewById(R.id.size_text);
             datePost = itemView.findViewById(R.id.datePost);
+            callNow = itemView.findViewById(R.id.callNow);
         }
     }
 }
